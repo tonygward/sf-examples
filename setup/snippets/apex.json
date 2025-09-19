@@ -1,0 +1,115 @@
+{
+	"New Apex Test": {
+		"prefix": "@isTest",
+		"body": [
+			"@isTest",
+            "static void testName() {",
+			"",
+			"}"
+		],
+		"description": "New Apex Test"
+	},
+    "randomString": {
+        "prefix": "random",
+        "body": [
+            "private static String generateRandomString(Integer length) {",
+            "\tfinal String characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';",
+            "\tString random = '';",
+            "\twhile (random.length() < length) {",
+            "\t   Integer index = Math.mod(Math.abs(Crypto.getRandomInteger()), characters.length());",
+            "\t   random += characters.substring(index, index+1);\t\t   ",
+            "\t}",
+            "\treturn random; ",
+            "}"
+        ],
+        "description": "generate random string"
+    },
+    "insertUser": {
+        "prefix": "insertUser",
+        "body": [
+            "private static User insertUser() {",
+            "\tProfile profileId = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1];\t\t ",
+            "\tUser usr = new User(LastName = 'LIVESTON',",
+            "\t\tFirstName='JASON',",
+            "\t\tAlias = 'jliv',",
+            "\t\tEmail = 'test@test.com',",
+            "\t\tUsername = generateRandomString(32) + '@test.com',",
+            "\t\tProfileId = profileId.id,",
+            "\t\tTimeZoneSidKey = 'GMT',",
+            "\t\tLanguageLocaleKey = 'en_US',",
+            "\t\tEmailEncodingKey = 'UTF-8',",
+            "\t\tLocaleSidKey = 'en_US'",
+            "\t);",
+            "\tinsert usr;",
+            "\treturn usr;",
+            "}",
+			"",
+            "private static String generateRandomString(Integer length) {",
+            "\tfinal String characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';",
+            "\tString random = '';",
+            "\twhile (random.length() < length) {",
+            "\t   Integer index = Math.mod(Math.abs(Crypto.getRandomInteger()), characters.length());",
+            "\t   random += characters.substring(index, index+1);\t\t   ",
+            "\t}",
+            "\treturn random; ",
+            "}"
+        ]
+    },
+    "iterableClass": {
+        "prefix": "iterableClass",
+        "body": [
+            "public class Iterable${1:type} implements Iterator<${1:type}> {",
+            "",
+            "\tprivate ${1:type} values;",
+            "\tprivate Integer currentIndex = 0;",
+            "",
+            "\tpublic Iterable${1:type}(${1:type} values) {",
+            "\t\tthis.values = values;",
+            "\t}",
+            "",
+            "\tpublic Boolean hasNext() {",
+            "\t\t//TODO",
+            "\t}",
+            "",
+            "\tpublic ${1:type} next() {",
+            "\t\tif (this.hasNext() == false) {",
+            "\t\t\tthrow new NoSuchElementException('Iterator has not more elements');",
+            "\t\t}",
+            "\t\t//TODO",
+            "\t}",
+            "}"
+        ]
+    },
+    "iterableString": {
+        "prefix": "iterableString",
+        "body": [
+            "public class IterableString implements Iterator<String> {",
+            "",
+            "        private String values;",
+            "        private Integer currentIndex = 0;",
+            "",
+            "        public IterableString(String values) {",
+            "            this.values = values;",
+            "        }",
+            "",
+            "        public Boolean hasNext() {",
+            "            if (String.isBlank(this.values)) {",
+            "                return false;",
+            "            }",
+            "            if (this.currentIndex >= this.values.length()) {",
+            "                return false;",
+            "            }",
+            "            return true;",
+            "        }",
+            "",
+            "        public String next() {",
+            "            if (this.hasNext() == false) {",
+            "                throw new NoSuchElementException('Iterator has not more elements');",
+            "            }",
+            "            this.currentIndex += 1;",
+            "            return this.values.substring(this.currentIndex - 1, this.currentIndex);",
+            "        }",
+            "    }"
+        ]
+    }
+}

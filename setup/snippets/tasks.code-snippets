@@ -1,0 +1,26 @@
+{
+    "apex-deploy-test": {
+        "prefix": "apexDeployTest",
+        "body": [
+            "{",
+            "\t\"label\": \"apex deploy and test\",",
+			"\t\"type\": \"shell\",",
+			"\t\"command\": \"sf project deploy start --tests apexclassTest\",",
+			"\t\"group\": {",
+			"\t\t\"isDefault\": true,",
+			"\t}",
+            "}  "
+        ],
+    },
+	"apex-class-changed": {
+		"prefix": "apexTriggerSave",
+		"body": [
+			"\t\"triggerTaskOnSave.tasks\": {",
+			"\t\t\"apex deploy and test\": [",
+			"\t\t\t\"*.cls\",",
+			"\t\t]",
+			"\t},",
+			"\t\"triggerTaskOnSave.selectedTask\": \"apex deploy and test\""
+		]
+	}
+}
