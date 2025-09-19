@@ -1,0 +1,1 @@
+        grep '@isTest' --include="*.cls" --recursive --ignore-case --files-with-matches | xargs --max-lines=1 basename | cut --delimiter='.' --fields=1 | sed 's/\n/,/g' --null-data
