@@ -1,0 +1,14 @@
+{
+    "Username": "tester1@sfdx.org",
+    "FirstName": "Standard",
+    "LastName": "Uer",
+    "Email": "tonygward.salesforce@gmail.com",
+    "Alias": "tester1",
+    "TimeZoneSidKey": "Europe/London",
+    "LocaleSidKey": "en_GB",
+    "EmailEncodingKey": "UTF-8",
+    "LanguageLocaleKey": "en_US",
+    "profileName": "Standard Platform User",
+    "permsets": ["ConsultancyArchitect"],
+    "generatePassword": true
+}
