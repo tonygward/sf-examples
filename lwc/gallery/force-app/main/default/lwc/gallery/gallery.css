@@ -1,0 +1,13 @@
+:host {
+    --sds-c-card-color-background: rgb(243, 242, 242);
+}
+
+.header {
+    padding: .5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
