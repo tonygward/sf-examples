@@ -1,0 +1,2 @@
+SELECT Id, BillingStreet, BillingState
+FROM Account
